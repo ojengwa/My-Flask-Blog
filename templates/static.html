@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html dir='ltr' lang='en-US'>
+<head>
+	
+	<!--  Basic Page Needs -->
+	<meta charset='UTF-8' />
+	<title>Pythonic | {{ param['title'] }} </title>
+	<meta name='description' content=''>
+	<meta name='author' content=''>
+
+	<!-- Favicon -->
+	<link rel='shortcut icon' href='favicon.ico' />
+	<link rel='apple-touch-icon' href='apple-touch-icon.png' />
+	
+	<!-- Mobile Specific Meta -->
+	<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+
+	<!-- CSS -->
+	<link rel='stylesheet' type='text/css' media='all' href='{{ url_for('static', filename='style.css') }}' />
+	<link rel='stylesheet' type='text/css' media='all' href='{{ url_for('static', filename='css/font-awesome.min.css') }}' />
+	<link rel='stylesheet' type='text/css' media='all' href='{{ url_for('static', filename='css/flexslider.css') }}' />
+	<link rel='stylesheet' type='text/css' media='all' href='{{ url_for('static', filename='css/font-awesome-ie7.min.css') }}' />
+	<link rel='stylesheet' type='text/css' media='all' href='{{ url_for('static', filename='css/keyframes.css') }}' />
+	<link rel='stylesheet' type='text/css' media='all' href='{{ url_for('static', filename='css/grid.css') }}' />
+	<link rel='stylesheet' type='text/css' media='all' href='{{ url_for('static', filename='css/meanmenu.css') }}' />
+	
+	<!-- Scripts -->
+	<script type='text/javascript' src='{{ url_for('static', filename='js/jquery.min.js') }}'></script>
+	<script type='text/javascript'>
+            $(document).ready(function(){
+                $(".toggle").click(function(){
+                    if($("#wpltfb-2").css("display") != 'none'){
+                        $("#wpltfb-2").hide();
+                        $("#wpltfb-1").show();
+                    }
+                    else{
+                        $("#wpltfb-1").hide();
+                        $("#wpltfb-2").show();
+                    }
+                });
+                return false;
+            });
+        </script>
+	<script type='text/javascript' src='{{ url_for('static', filename='js/html5.js') }}'></script>
+	<script src='{{ url_for('static', filename='js/base.js') }}'></script>
+
+	<!-- Scripts for plugins -->
+	<script src='{{ url_for('static', filename='js/jquery.fitvids.js') }}'></script>
+	<script src='{{ url_for('static', filename='js/jquery.meanmenu.js') }}'></script>
+	<script src='{{ url_for('static', filename='js/jquery.flexslider-min.js') }}'></script>
+	<script src='{{ url_for('static', filename='js/jquery.inview.js') }}'></script>
+	<script src='{{ url_for('static', filename='js/jquery.scrollParallax.min.js') }}'></script>
+</head>
+<body class='home blog two-column right-sidebar' data-twttr-rendered='true'>
+	<div id='page'>
+
+		<header id='branding' class='site-header' role='banner'>
+			<div id='sticky_navigation'>
+				<div class='container_16'>
+					<hgroup class='fleft grid_5'>
+						<h1 id='site-title'><a href="{{ url_for('index') }}" title='' rel='home'>Pythonic</a></h1>
+						<h2 id='site-description'>Little Blog</h2>
+					</hgroup>
+
+					<nav role='navigation' class='site-navigation main-navigation grid_11' id='site-navigation'>
+						<div class='menu-main-menu-container'>
+							<ul id='menu-main-menu' class='nav-menu'>
+								<li class='menu-item '><a href="{{ url_for('index') }}">Home</a></li>
+								<!--li class='menu-item '><a href="{{ url_for('contact') }}">Contacts</a></li-->
+							</ul>
+						</div>
+					</nav>
+					<!-- .site-navigation .main-navigation -->
+					<div class='grid_16 mob-nav'></div>
+					<div class='clear'></div>
+				</div>
+			</div>
+		</header>
+		<!-- #masthead .site-header -->
+
+
+		<div class='item teaser-page-list'>
+			<div class='container_16'>
+				<aside class='grid_10'>
+					<h1 class='page-title'> {{ param['title'] }} </h1>
+				</aside>
+				<div class='grid_6'>
+					<div id='rootline'>
+						<a href="{{ url_for('index') }}">Home Page</a> | <span class='current'> {{ param['title'] }} </span>	
+					</div>
+				</div>
+				<div class='clear'></div>
+			</div>
+		</div>
+
+{% block body %} {% endblock %}
+
+
+		<footer id='colophon' class='site-footer' role='contentinfo'>
+
+
+			<!-- Site Info -->
+			<div class='site-info'>
+				<div class='container_16'>
+					
+					<!-- CopyRight -->
+					<div class='grid_8'>
+						<p class='copy'>Copyright &copy  2014.  All Rights reserved.  </p>
+					</div>
+
+					<!-- Design By -->
+					<div class='grid_8'>
+						<p class='designby'>Designed by <a href='http://github.com/ojengwa'>Bernard</a></p>
+					</div>
+
+					<div class='clear'></div>
+				</div>
+			</div><!-- .site-info -->
+		</footer><!-- #colophon .site-footer -->
+
+	</div>
+	<!-- /#page -->
+</body>
+</html>

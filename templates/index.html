@@ -1,0 +1,61 @@
+{% extends 'static.html' %}
+{% import 'auth.html' as auth %}
+{% import 'profile.html' as profile %}
+{% block body %}
+<div id='main' class='site-main container_16'>
+			<div class='inner'>
+				<div id='primary' class='grid_11 suffix_1'>
+					
+					<!-- Articles -->								
+                     
+                    {% for post in param['posts'] | reverse %}                          
+					<article class='list vevent'>
+						<div class='short-content'>
+							
+							<h1 class='entry-header'>
+								<a class='url summary' href='single/{{ post[1] }}'> {{ post[2] }} </a>
+							</h1>
+
+							<div class='short-description description'>
+								<p> {{ post[3] }} </p>
+							</div>
+
+							<div class='entry-meta'>
+								<time class='dtstart'><i class="icon-calendar"></i> {{ post[4] }} </time>  <a class='buttons fright' href='single/{{ post[1] }}'>Read more...</a>
+							</div>
+							<div class='clear'></div>
+
+						</div>
+						<div class='clear'></div>
+					</article>
+                    {% endfor %}
+					<!-- Pagination 
+					<ul class='pagination'>
+						<li><a class='active radius' href='#'>1</a></li>
+						<li><a class='radius' href='#'>2</a></li>
+						<li><a class='radius' href='#'>3</a></li>
+						<li><a class='radius' href='#'>4</a></li>
+						<li><a class='radius' href='#'>5</a></li>
+					</ul>
+                    -->
+				</div>
+            
+				<div id='secondary' class='grid_4 widget-area' role='complementary'>
+                    <!-- replace with appropriate content-->
+                                          
+                {% if session['valid'] %}
+                
+                {% call profile.render_panel() %}
+                {% endcall %}
+                
+                {% else %}
+                
+                {% call auth.render_panel() %}
+                {% endcall %}
+
+                {% endif %}
+				</div>
+				<div class='clear'></div>
+			</div>
+		</div>
+    {% endblock %}

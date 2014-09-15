@@ -1,0 +1,19 @@
+{%- macro render_panel(caller) %}
+
+					<aside id="archives" class="widget" >
+						<div class="widget-title">	
+							<h3>Profile</h3>
+							<div class="clear"></div>
+						</div>
+						<ul>
+							<li><strong>Welcome, </strong><a name="" > {{ session.name }} </a></li>
+							<li><a href="post.do/{{ session.id }}" class=' grey' title="Create a New Post"> Publish a new Article </a></li>
+							<li><a href="{{ url_for('logout') }}" class='red disabled' disabled> Logout </a></li>
+						</ul>
+						<br>
+						
+						
+						
+					</aside>
+
+{%- endmacro %}
